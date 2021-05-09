@@ -1,0 +1,6 @@
+REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
+gabalino/ubuntu-tmp-file   latest    e1b89cc1c139   38 seconds ago   63.1MB
+ubuntu                     latest    7e0aa2d69a15   11 days ago      72.7MB
+ubuntu                     18.04     4eb8f7c43909   11 days ago      63.1MB
+nginx                      latest    62d49f9bab67   3 weeks ago      133MB
+hello-world                latest    d1165f221234   2 months ago     13.3kB
