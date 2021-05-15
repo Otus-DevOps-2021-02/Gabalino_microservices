@@ -12,4 +12,7 @@ docker run --name reddit -d -p 9292:9292 <your-login>/otus-reddit:1.0
 ```
 docker logs reddit -f
 docker exec -it reddit bash
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
+docker system prune
 ```
