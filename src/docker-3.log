@@ -1,0 +1,8 @@
+REPOSITORY         TAG          IMAGE ID       CREATED              SIZE
+gabalino/ui        2.0          2614713469f8   27 seconds ago       472MB
+gabalino/comment   1.0          58137a6b3476   About a minute ago   475MB
+gabalino/post      1.0          f31e60dd3c10   3 minutes ago        61.3MB
+mongo              latest       07630e791de3   5 days ago           449MB
+python             3.6-alpine   118f82a946c9   12 days ago          40.6MB
+ubuntu             16.04        aefd7f02ae24   3 weeks ago          134MB
+ruby               2.2-slim     773c3739a02c   3 years ago          262MB
