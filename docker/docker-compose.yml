@@ -44,7 +44,7 @@ services:
       - reddit_back
 
   node-exporter:
-    image: prom/node-exporter:v0.15.2
+    image: prom/node-exporter:v1.1.2
     user: root
     volumes:
       - /proc:/host/proc:ro
@@ -55,7 +55,6 @@ services:
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
     networks:
-      - reddit_front
       - reddit_back
 
 volumes:

@@ -25,6 +25,8 @@ yc compute instance create \
 --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1804-lts,size=15 \
 --ssh-key ~/.ssh/id_rsa.pub
 
+# yc compute instance delete --name docker-host
+
 docker-machine create \
 --driver generic \
 --generic-ip-address=84.201.133.229 \
@@ -36,4 +38,7 @@ eval $(docker-machine env docker-host)
 
 docker-machine ls
 docker-machine ip docker-host
+# docker-machine rm -f docker-host
+
 ```
+https://hub.docker.com/u/gabalino
