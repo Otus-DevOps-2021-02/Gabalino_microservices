@@ -16,3 +16,29 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 docker system prune
 ```
+__Docker machine__
+```
+yc compute instance create \
+--name docker-host \
+--zone ru-central1-a \
+--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+--create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1804-lts,size=15 \
+--ssh-key ~/.ssh/id_rsa.pub
+
+# yc compute instance delete --name docker-host
+
+docker-machine create \
+--driver generic \
+--generic-ip-address=84.201.133.229 \
+--generic-ssh-user yc-user \
+--generic-ssh-key ~/.ssh/id_rsa \
+docker-host
+
+eval $(docker-machine env docker-host)
+
+docker-machine ls
+docker-machine ip docker-host
+# docker-machine rm -f docker-host
+
+```
+https://hub.docker.com/u/gabalino
