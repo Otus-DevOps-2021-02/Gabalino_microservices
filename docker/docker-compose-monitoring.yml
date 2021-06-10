@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   prometheus:
-    image: ${USERNAME}/prometheus
+    image: ${USER_NAME}/prometheus
     ports:
       - '9090:9090'
     volumes:
@@ -56,7 +56,7 @@ services:
       - reddit_back
 
   alertmanager:
-    image: ${USERNAME}/alertmanager
+    image: ${USER_NAME}/alertmanager
     command:
       - '--config.file=/etc/alertmanager/config.yml'
     ports:
