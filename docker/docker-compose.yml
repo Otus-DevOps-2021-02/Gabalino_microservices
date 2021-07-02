@@ -9,22 +9,44 @@ services:
 
   ui:
     build: ./ui
-    image: ${USERNAME}/ui:${UI_VER}
+    image: ${USER_NAME}/ui:${UI_VER}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - ${UI_PORT}:9292/tcp
     networks:
       - reddit_front
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
 
   post:
     build: ./post-py
-    image: ${USERNAME}/post:${POST_VER}
+    image: ${USER_NAME}/post:${POST_VER}
+    environment:
+      - POST_DATABASE_HOST=post_db
+      - POST_DATABASE=posts
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
+    depends_on:
+      - post_db
+    ports:
+      - "5000:5000"
     networks:
       - reddit_front
       - reddit_back
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
 
   comment:
     build: ./comment
-    image: ${USERNAME}/comment:${COMMENT_VER}
+    image: ${USER_NAME}/comment:${COMMENT_VER}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - reddit_front
       - reddit_back

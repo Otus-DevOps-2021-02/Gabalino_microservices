@@ -1,5 +1,5 @@
 #!/bin/bash
-docker pull mongo:latest
-docker build -t $USER/post:1.0 ./post-py
-docker build -t $USER/comment:1.0 ./comment
-docker build -t $USER/ui:2.0 ./ui
+export USER_NAME='gabalino'
+cd ./ui   && bash docker_build.sh && docker push $USER_NAME/ui
+cd ../post-py && bash docker_build.sh && docker push $USER_NAME/post
+cd ../comment && bash docker_build.sh && docker push $USER_NAME/comment
